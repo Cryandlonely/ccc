@@ -56,12 +56,22 @@ public class main02 {
         for (Student s : list) {
             System.out.println(s);
         }*/
+        /*
+         动态sql,where与if标签
         Student s = new Student();
         s.setAge("11");
         //s.setId("001");
         List<Student> list = studentDao.select9(s);
         for (Student student : list) {
             System.out.println(student);
+        }*/
+        /*
+          动态sql,foreach标签
+        String strArr[] = {"001","002","003"};
+        List<Student> list = studentDao.select10(strArr);
+        for(Student s : list){
+            System.out.println(s);
         }
+        */
     }
 }

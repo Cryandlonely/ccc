@@ -29,4 +29,6 @@ public interface StudentDao {
     List<Student> select8();
 
     List<Student> select9(Student s);
+
+    List<Student> select10(String[] strArr);
 }
