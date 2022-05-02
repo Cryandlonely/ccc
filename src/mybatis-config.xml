@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入属性文件-->
+    <properties resource="jdbc.properties"/>
+    <!--必须在properties标签下面-->
+    <typeAliases>
+        <!--
+           起别名，别名默认是类的类名（不区分大小写）
+        -->
+        <package name="com.cj.domain"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--\
+        方式一：使用resource属性，指定mapper映射文件
+        <mapper resource="com/cj/dao/StudentDao.xml"/>
+        -->
+        <!--
+        方式二：使用class属性，找到dao层接口的全路径
+        <mapper class="com.cj.dao.StudentDao"/>
+        -->
+        <!--
+        方式三：批量注册(主要使用这种方式)
+        name属性：指向dao层的包，表示在该dao包下，所有的mapper映射文件自动注册
+        -->
+        <package name="com.cj.dao"/>
+        <!--
+         以/的路径一般在xml路径中使用
+         以.的路径一般在Java路径中使用
+        -->
+    </mappers>
+</configuration>
