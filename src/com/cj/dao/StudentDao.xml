@@ -62,4 +62,21 @@
     <select id="select7" resultMap="stuMap">
         select * from tbl_student
     </select>
+    <select id="select9" resultType="Student" parameterType="Student">
+        select * from tbl_student
+        /*
+            where标签：当where标签使用的时候，必须要要搭配where标签对中if标签来使用
+            通过if标签的判断，如果有查询条件，则展现where关键字，如果没有查询条件则不展示where关键字
+
+            where标签会自动屏蔽第一个连接符 and/or
+        */
+        <where>
+            <if test="age!=null and age!=''">
+                and age=#{age}
+            </if>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+        </where>
+    </select>
 </mapper>

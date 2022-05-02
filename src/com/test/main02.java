@@ -4,6 +4,7 @@ import com.cj.dao.StudentDao;
 import com.cj.domain.Student;
 import com.cj.utils.SqlSessionUtil;
 
+import javax.xml.transform.Source;
 import java.util.List;
 import java.util.Map;
 
@@ -51,9 +52,16 @@ public class main02 {
         for (Student s : list) {
             System.out.println(s);
         }*/
-        List<Student> list= studentDao.select8();
+        /*List<Student> list= studentDao.select8();
         for (Student s : list) {
             System.out.println(s);
+        }*/
+        Student s = new Student();
+        s.setAge("11");
+        //s.setId("001");
+        List<Student> list = studentDao.select9(s);
+        for (Student student : list) {
+            System.out.println(student);
         }
     }
 }

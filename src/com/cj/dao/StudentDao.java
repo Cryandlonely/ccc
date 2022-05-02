@@ -27,4 +27,6 @@ public interface StudentDao {
     List<Student> select7();
 
     List<Student> select8();
+
+    List<Student> select9(Student s);
 }
